@@ -24,3 +24,15 @@ Basic styles:
                 transform: translate3d(0, 0, 0);
 }
 ```
+
+## WordPress integration
+Place `turbolinks.js` file in theme directory under js folder.
+Connect file to front-end via functions.php:
+```PHP
+function turbolinks_js() {
+	wp_enqueue_script( 'turbolinks-js', get_template_directory_uri() . '/js/turbolinks.js' );
+}
+add_action( 'wp_enqueue_scripts', 'turbolinks_js' );
+```
+
+Or connect via default action `wp_enqueue_scripts`.
